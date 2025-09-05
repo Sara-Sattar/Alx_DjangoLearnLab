@@ -13,7 +13,8 @@ def sample_data():
 def queries():
     author_name = "George Orwell"
     author = Author.objects.get(name=author_name)
-    print(author.books.all())
+    books_by_author = Book.objects.filter(author=author)
+    print(books_by_author)
 
     library_name = "Central Library"
     library = Library.objects.get(name=library_name)
