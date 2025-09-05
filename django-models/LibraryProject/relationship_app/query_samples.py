@@ -2,20 +2,22 @@ from relationship_app.models import Author, Book, Library, Librarian
 
 def sample_data():
     author = Author.objects.create(name="George Orwell")
-    
     book1 = Book.objects.create(title="1984", author=author)
     book2 = Book.objects.create(title="Animal Farm", author=author)
-    
+
     library = Library.objects.create(name="Central Library")
     library.books.add(book1, book2)
-    
-    librarian = Librarian.objects.create(name="Alice", library=library)
+
+    Librarian.objects.create(name="Alice", library=library)
 
 def queries():
-    orwell = Author.objects.get(name="George Orwell")
-    print(orwell.books.all())  
+    author_name = "George Orwell"
+    author = Author.objects.get(name=author_name)
+    print(author.books.all())
 
-    central = Library.objects.get(name="Central Library")
-    print(central.books.all())
+    library_name = "Central Library"
+    library = Library.objects.get(name=library_name)
+    print(library.books.all())
 
-    print(central.librarian)
+    library = Library.objects.get(name=library_name)
+    print(library.librarian)
