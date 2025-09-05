@@ -20,5 +20,5 @@ def queries():
     library = Library.objects.get(name=library_name)
     print(library.books.all())
 
-    library = Library.objects.get(name=library_name)
-    print(library.librarian)
+    librarian = Librarian.objects.get(library=library)
+    print(librarian)
