@@ -1,4 +1,7 @@
-book = Book.objects.get(title="1984")
+# Update Operation
+
+```python
 book.title = "Nineteen Eighty-Four"
 book.save()
-book
+print(book)  # Output: <Book: Nineteen Eighty-Four>
+```
